@@ -1,0 +1,453 @@
+{
+	"info": {
+		"_postman_id": "e1c53b64-e3cb-4c37-bac0-1b82eb5854e5",
+		"name": "Jira-Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29627294"
+	},
+	"item": [
+		{
+			"name": "Create-Problem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"order=pm.response.json();\r",
+							"pm.globals.set(\"createid\",order.key);\r",
+							"\r",
+							"pm.test(\"Problem created successfully\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n        \"project\": {\r\n            \"key\": \"RT\"\r\n        },\r\n        \"summary\": \"create Problem in RT project using Postman\",\r\n        \"description\": \"Creating of an issue using project keys and issue type names using the REST API\",\r\n        \"issuetype\": {\r\n            \"name\": \"Problem\"\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issue/",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search-Problem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issue/{{createid}}",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{createid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit-Problem",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Problem Desc updated successfully\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fields\": {\r\n\r\n        \"summary\": \"Problem summary updated for REST API for testing\"\r\n    }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issue/{{createid}}",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"{{createid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-req",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Problem deleted successfully\", function () {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issue/RT-15",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issue",
+						"RT-15"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search-all-issues",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/issues/?jql=text%20~%20%22restapi*%22",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"issues",
+						""
+					],
+					"query": [
+						{
+							"key": "jql",
+							"value": "text%20~%20%22restapi*%22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List-All",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issuetype",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List-specific-issue",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "s.meena074@gmail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://s-meena074.atlassian.net/rest/api/2/issuetype/10008",
+					"protocol": "https",
+					"host": [
+						"s-meena074",
+						"atlassian",
+						"net"
+					],
+					"path": [
+						"rest",
+						"api",
+						"2",
+						"issuetype",
+						"10008"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "ATATT3xFfGF0oXe4NBk2OGcU2qMUkU1YwOPXfR7IkStZ8x4mbhSYkuNEmNlnAInD42JVvPttVhodF4URKiG2Q-eW2E99UxZ2uqQSJOsMSiC-17eAhkC6emuPfESn5oybkDiVKxBHOa41B58DpBQl0askN9U4VQT6B0XaVLvTplbO8PjfHmcKya8=DF3BE1D4",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "s.meena074@gmail.com",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"value": "",
+			"type": "string"
+		}
+	]
+}
